@@ -1,7 +1,7 @@
 package li.cil.scannable.util.fabric;
 
-import fuzs.forgeconfigapiport.api.config.v2.ForgeConfigRegistry;
-import fuzs.forgeconfigapiport.api.config.v2.ModConfigEvents;
+import fuzs.forgeconfigapiport.fabric.api.forge.v4.ForgeConfigRegistry;
+import fuzs.forgeconfigapiport.fabric.api.forge.v4.ForgeModConfigEvents;
 import li.cil.scannable.api.API;
 import li.cil.scannable.util.ConfigManager;
 import li.cil.scannable.util.config.ConfigType;
@@ -32,8 +32,8 @@ public final class ConfigManagerImpl extends ConfigManager {
     }
 
     public static void initialize() {
-        ModConfigEvents.loading(API.MOD_ID).register(ConfigManagerImpl::handleModConfigEvent);
-        ModConfigEvents.reloading(API.MOD_ID).register(ConfigManagerImpl::handleModConfigEvent);
+        ForgeModConfigEvents.loading(API.MOD_ID).register(ConfigManagerImpl::handleModConfigEvent);
+        ForgeModConfigEvents.reloading(API.MOD_ID).register(ConfigManagerImpl::handleModConfigEvent);
 
         CONFIGS.forEach((spec, config) -> {
             final Type typeAnnotation = config.instance().getClass().getAnnotation(Type.class);
