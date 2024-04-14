@@ -17,13 +17,13 @@ import net.neoforged.neoforge.event.TickEvent;
 
 @OnlyIn(Dist.CLIENT)
 @Mod.EventBusSubscriber(modid = API.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-public final class ClientSetupForge {
+public final class ClientSetupNeoForge {
     @SubscribeEvent
     public static void handleSetupEvent(final FMLClientSetupEvent event) {
         ClientSetup.initialize();
 
-        NeoForge.EVENT_BUS.addListener(ClientSetupForge::handleClientTickEvent);
-        NeoForge.EVENT_BUS.addListener(ClientSetupForge::handleRenderLevelEvent);
+        NeoForge.EVENT_BUS.addListener(ClientSetupNeoForge::handleClientTickEvent);
+        NeoForge.EVENT_BUS.addListener(ClientSetupNeoForge::handleRenderLevelEvent);
     }
 
     @SubscribeEvent
@@ -41,8 +41,9 @@ public final class ClientSetupForge {
     }
 
     public static void handleRenderLevelEvent(final RenderLevelStageEvent event) {
-        if (event.getStage() == RenderLevelStageEvent.Stage.AFTER_WEATHER) {
-            ScanManager.renderLevel(event.getPoseStack(), event.getProjectionMatrix(), event.getPartialTick());
+        if (event.getStage() == RenderLevelStageEvent.Stage.AFTER_LEVEL) {
+            ScanManager.setMatrices(event.getPoseStack(), event.getProjectionMatrix());
+            ScanManager.renderLevel(event.getPartialTick());
         }
     }
 }

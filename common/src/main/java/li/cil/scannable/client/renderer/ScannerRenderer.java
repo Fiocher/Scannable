@@ -45,7 +45,7 @@ public enum ScannerRenderer {
         INSTANCE.doRender(poseStack);
     }
 
-    public void doRender(final PoseStack poseStack) {
+    private void doRender(final PoseStack poseStack) {
         if (shouldRender()) {
             grabDepthBuffer();
             render(poseStack.last().pose());

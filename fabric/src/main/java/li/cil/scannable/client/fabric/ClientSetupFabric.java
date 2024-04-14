@@ -14,7 +14,10 @@ public final class ClientSetupFabric implements ClientModInitializer {
         ClientSetup.initialize();
 
         ClientTickEvents.END_CLIENT_TICK.register(instance -> ScanManager.tick());
-        WorldRenderEvents.LAST.register(context -> ScanManager.renderLevel(context.matrixStack(), context.projectionMatrix(), context.tickDelta()));
+        WorldRenderEvents.LAST.register(context -> {
+            ScanManager.setMatrices(context.matrixStack(), context.projectionMatrix());
+            ScanManager.renderLevel(context.tickDelta());
+        });
 
         HudRenderCallback.EVENT.register((matrixStack, tickDelta) -> {
             ScanManager.renderGui(tickDelta);

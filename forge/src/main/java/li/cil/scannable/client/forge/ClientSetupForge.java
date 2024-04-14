@@ -42,7 +42,9 @@ public final class ClientSetupForge {
 
     public static void handleRenderLevelEvent(final RenderLevelStageEvent event) {
         if (event.getStage() == RenderLevelStageEvent.Stage.AFTER_WEATHER) {
-            ScanManager.renderLevel(event.getPoseStack(), event.getProjectionMatrix(), event.getPartialTick());
+            ScanManager.setMatrices(event.getPoseStack(), event.getProjectionMatrix());
+        } else if (event.getStage() == RenderLevelStageEvent.Stage.AFTER_LEVEL) {
+            ScanManager.renderLevel(event.getPartialTick());
         }
     }
 }

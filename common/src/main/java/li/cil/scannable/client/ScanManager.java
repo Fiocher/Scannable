@@ -233,18 +233,20 @@ public final class ScanManager {
         }
     }
 
-    public static void renderLevel(final PoseStack poseStack, final Matrix4f projectionMatrix, final float partialTick) {
+    public static void setMatrices(final PoseStack poseStack, final Matrix4f projectionMatrix) {
+        worldViewModelStack = new PoseStack();
+        worldViewModelStack.last().pose().set(poseStack.last().pose());
+        worldProjectionMatrix = projectionMatrix;
+    }
+
+    public static void renderLevel(final float partialTick) {
         synchronized (renderingResults) {
             if (renderingResults.isEmpty()) {
                 return;
             }
+
+            render(ScanResultRenderContext.WORLD, partialTick, worldViewModelStack, worldProjectionMatrix);
         }
-
-        worldViewModelStack = new PoseStack();
-        worldViewModelStack.last().pose().set(poseStack.last().pose());
-        worldProjectionMatrix = projectionMatrix;
-
-        render(ScanResultRenderContext.WORLD, partialTick, worldViewModelStack, worldProjectionMatrix);
     }
 
     public static void renderGui(final float partialTick) {
