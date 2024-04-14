@@ -9,7 +9,9 @@ fabric-loader = "0.15.10"
 fabric-api = "0.97.0+1.20.4"
 fabric-forgeConfigPort = "20.4.3"
 
-forge-platform = "1.20.4-49.0.39"
+forge-platform = "1.20.4-49.0.41"
+
+neoforge-platform = "20.4.227"
 
 [plugins]
 loom = { id = "dev.architectury.loom", version = "1.6-SNAPSHOT" }
@@ -35,4 +37,5 @@ fabric-roughlyEnoughItems = { group = "me.shedaniel", name = "RoughlyEnoughItems
 forge-platform = { group = "net.minecraftforge", name = "forge", version.ref = "forge-platform" }
 forge-architectury = { group = "dev.architectury", name = "architectury-forge", version.ref = "architectury" }
 
-forge-justEnoughItems = { group = "curse.maven", name = "jei-238222", version = "5101381" }
+neoforge-platform = { group = "net.neoforged", name = "neoforge", version.ref = "neoforge-platform" }
+neoforge-architectury = { group = "dev.architectury", name = "architectury-neoforge", version.ref = "architectury" }

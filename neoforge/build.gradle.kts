@@ -1,18 +1,10 @@
 val modId: String by project
 val minecraftVersion: String = libs.versions.minecraft.get()
-val forgeVersion: String = libs.versions.forge.platform.get().split("-")[1]
+val neoforgeVersion: String = libs.versions.neoforge.platform.get()
 val architecturyVersion: String = libs.versions.architectury.get()
 
 loom {
     accessWidenerPath.set(project(":common").loom.accessWidenerPath)
-
-    forge {
-        convertAccessWideners.set(true)
-        extraAccessWideners.add(loom.accessWidenerPath.get().asFile.name)
-
-        mixinConfig("${modId}-common.mixins.json")
-        mixinConfig("${modId}.mixins.json")
-    }
 
     runs {
         create("data") {
@@ -23,9 +15,13 @@ loom {
     }
 }
 
+repositories {
+    maven("https://maven.neoforged.net/releases")
+}
+
 dependencies {
-    forge(libs.forge.platform)
-    modApi(libs.forge.architectury)
+    neoForge(libs.neoforge.platform)
+    modImplementation(libs.neoforge.architectury)
 }
 
 tasks {
@@ -33,8 +29,7 @@ tasks {
         val properties = mapOf(
             "version" to project.version,
             "minecraftVersion" to minecraftVersion,
-            "loaderVersion" to forgeVersion.split(".").first(),
-            "forgeVersion" to forgeVersion,
+            "neoforgeVersion" to neoforgeVersion,
             "architecturyVersion" to architecturyVersion
         )
         inputs.properties(properties)
