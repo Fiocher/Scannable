@@ -37,4 +37,8 @@ tasks {
             expand(properties)
         }
     }
+
+    remapJar {
+        atAccessWideners.add("${modId}.accesswidener")
+    }
 }
