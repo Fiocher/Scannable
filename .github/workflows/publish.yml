@@ -67,7 +67,7 @@ jobs:
             ./neoforge/build/libs/*.jar
           retention-days: 1
 
-  publish-fabric:
+  publish:
     strategy:
       matrix:
         loader: [ fabric, forge, neoforge ]
