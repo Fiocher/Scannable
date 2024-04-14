@@ -36,6 +36,9 @@ ordering = "AFTER"
 side = "BOTH"
 
 [[mixins]]
+config = "scannable-common.mixins.json"
+
+[[mixins]]
 config = "scannable.mixins.json"
 
 [mc-publish]
