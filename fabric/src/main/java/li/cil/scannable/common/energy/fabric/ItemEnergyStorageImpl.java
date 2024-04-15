@@ -9,7 +9,6 @@ import team.reborn.energy.api.EnergyStorage;
 
 import java.util.Optional;
 
-@SuppressWarnings("UnstableApiUsage")
 public final class ItemEnergyStorageImpl {
     public static Optional<ItemEnergyStorage> of(final ItemStack container) {
         final ContainerItemContext context = ContainerItemContext.ofSingleSlot(new SingleStackStorage() {
