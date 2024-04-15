@@ -28,9 +28,11 @@ pluginManagement {
 }
 
 include("common")
-include("fabric")
-include("forge")
-include("neoforge")
+
+val enabledPlatforms: String by settings
+for (enabledPlatform in enabledPlatforms.split(",")) {
+    include(enabledPlatform)
+}
 
 val modId: String by settings
 rootProject.name = modId
