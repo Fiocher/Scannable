@@ -7,7 +7,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(API.MOD_ID)
-public class CommonSetupForge {
+public final class CommonSetupForge {
     public CommonSetupForge() {
         EventBuses.registerModEventBus(API.MOD_ID, FMLJavaModLoadingContext.get().getModEventBus());
         CommonSetup.initialize();
