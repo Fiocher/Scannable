@@ -1,6 +1,7 @@
 val modId: String by project
 val minecraftVersion: String = libs.versions.minecraft.get()
 val neoforgeVersion: String = libs.versions.neoforge.platform.get()
+val neoforgeLoaderVersion: String = libs.versions.neoforge.loader.get()
 val architecturyVersion: String = libs.versions.architectury.get()
 
 loom {
@@ -30,6 +31,7 @@ tasks {
             "version" to project.version,
             "minecraftVersion" to minecraftVersion,
             "neoforgeVersion" to neoforgeVersion,
+            "loaderVersion" to neoforgeLoaderVersion,
             "architecturyVersion" to architecturyVersion
         )
         inputs.properties(properties)
