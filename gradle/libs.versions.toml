@@ -7,7 +7,9 @@ architectury = "11.1.17"
 
 fabric-loader = "0.15.10"
 fabric-api = "0.97.0+1.20.4"
+
 fabric-forgeConfigPort = "20.4.3"
+fabric-tooltipfix = "1.1.1-1.20"
 
 forge-platform = "1.20.4-49.0.41"
 
@@ -31,7 +33,7 @@ fabric-architectury = { group = "dev.architectury", name = "architectury-fabric"
 fabric-forgeConfigPort = { group = "fuzs.forgeconfigapiport", name = "forgeconfigapiport-fabric", version.ref = "fabric-forgeConfigPort" }
 fabric-energy = { group = "teamreborn", name = "energy", version = "3.0.0" }
 
-fabric-tooltipFix = { group = "curse.maven", name = "tooltipfix-411557", version = "4577194" }
+fabric-tooltipFix = { group = "maven.modrinth", name = "tooltipfix", version.ref = "fabric-tooltipfix" }
 fabric-roughlyEnoughItems = { group = "me.shedaniel", name = "RoughlyEnoughItems-fabric", version = "14.0.692" }
 
 forge-platform = { group = "net.minecraftforge", name = "forge", version.ref = "forge-platform" }

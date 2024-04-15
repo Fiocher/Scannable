@@ -46,8 +46,8 @@ subprojects {
             filter { includeGroupByRegex("org\\.parchmentmc.*") }
         }
         exclusiveContent {
-            forRepository { maven("https://cursemaven.com") }
-            filter { includeGroup("curse.maven") }
+            forRepository { maven("https://api.modrinth.com/maven") }
+            filter { includeGroup("maven.modrinth") }
         }
     }
 
